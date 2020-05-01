@@ -1,0 +1,20 @@
+$TTL 1D
+@	IN SOA	@ rname.invalid. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	NS	@
+	A	127.0.0.1
+	AAAA	::1
+	PTR	localhost.
+
+@			IN	NS	openshift.example.com.
+master			IN	A	192.168.253.31
+infrastructure		IN	A	192.168.253.32
+worker1			IN	A	192.168.253.33
+worker2   		IN      A       192.168.253.34
+worker3   		IN      A       192.168.253.35
+services		IN	A	192.168.253.36
+*.cloudapps	300     IN      A       192.168.253.32

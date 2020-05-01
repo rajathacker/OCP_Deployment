@@ -1,0 +1,18 @@
+$TTL 1D
+@	IN SOA	@ rname.invalid. (
+					0	; serial
+					1D	; refresh
+					1H	; retry
+					1W	; expire
+					3H )	; minimum
+	NS	@
+	A	127.0.0.1
+	AAAA	::1
+
+@	IN	NS	openshift.example.com.
+31	IN	PTR	master.openshift.example.com.
+32	IN	PTR	infrastructure.openshift.example.com.
+33	IN	PTR	worker1.openshift.example.com.
+34	IN	PTR	worker2.openshift.example.com.
+35	IN	PTR	worker3.openshift.example.com.
+36	IN	PTR	services.openshift.example.com.

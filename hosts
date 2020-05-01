@@ -1,0 +1,41 @@
+[OSEv3:children]
+masters
+nodes
+etcd
+
+[OSEv3:vars]
+ansible_ssh_user=root
+debug_level=2
+openshift_deployment_type=openshift-enterprise
+openshift_release=v3.11
+
+oreg_auth_user='6697351|rajathacker'
+oreg_auth_password='eyJhbGciOiJSUzUxMiJ9.eyJzdWIiOiIyMjE5ODIzOWMyNjU0MTVmODdjMGVlY2VhMzAwYzVhZSJ9.WuhMrh0yeSXQ2JAV1mTT4gmuomYNajmYn98DPs3hsfQG2pWvhySQIZndsISwAEroAHIuFOjUB30O62esmxzdrgTbFcloWHzAdbqHWirDP8DMi-bt6XznC7Lp-asvNXGfSgHYiL6ba0QopjrH_xJUXtuqXk_OGX988x0cbR6PjLH2qQS6f9KA1xkbJ5N-daRhokZwYok5O4zgTPV5CMENlvpypUREgdipSLTTWhNpTYVPYFSm98E-Aq448qXM4xfxINPcg3fC6UkZej6w9nuokF8Bqdx1tps4AHJjNQ86ibZWxm3X24njfocAVmsBaUuytoHl2nb4uelWbw2U10kzbteuv70nL8ZgOI8qTLjr2ce0NWnMjGj9rAktS9Lydq8NJIiHrLZieKBZl-uijUqR4wBe3dO_bOj2g5EUcYnQGGmKG7z6hOSZ1BOOtQsccj0lig3mReaJJp8cFToNmkZSnizooDipa-hH9SIeXw7WiaHqDqS19drJMsVTlM2Hsk3xtabzKhMt5rLgQpMnMr40nfKpZ_2cpUpNBKd5pUN0q0fo_F9cq_ZL39JRAg6B7A60NUwuPMEdXN5t1PyBGVRUdDjDdYHwAhpUyVfwDY-ZgKO0HjrHmnZhjLZX5i1qTwS1w9OEk0pVuxdtALYa3NdwhpMHGgC5gLLEDmvbG-8Cg60'
+
+openshift_master_identity_providers=[{'name': 'allow_all', 'login': 'true', 'challenge': 'true', 'kind': 'AllowAllPasswordIdentityProvider'}]
+openshift_master_cluster_method=native
+openshift_master_cluster_hostname=master.openshift.example.com
+openshift_master_cluster_public_hostname=master.openshift.example.com
+openshift_master_default_subdomain=cloudapps.openshift.example.com
+openshift_hosted_registry_replicas=1
+openshift_master_api_port=443
+openshift_master_console_port=443
+openshift_override_hostname_check=true
+
+openshift_disable_check=disk_availability,docker_storage,package_version,memory_availability
+
+openshift_enable_olm=false
+
+[masters]
+master.openshift.example.com
+
+[etcd]
+master.openshift.example.com
+
+[nodes]
+master.openshift.example.com openshift_node_group_name="node-config-master"
+infrastructure.openshift.example.com openshift_node_group_name="node-config-infra"
+worker1.openshift.example.com openshift_node_group_name="node-config-compute"
+worker2.openshift.example.com openshift_node_group_name="node-config-compute"
+worker3.openshift.example.com openshift_node_group_name="node-config-compute"
+
