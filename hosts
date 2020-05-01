@@ -22,6 +22,8 @@ openshift_master_api_port=443
 openshift_master_console_port=443
 openshift_override_hostname_check=true
 
+os_firewall_use_firewalld=true
+
 openshift_disable_check=disk_availability,docker_storage,package_version,memory_availability
 
 openshift_enable_olm=false
